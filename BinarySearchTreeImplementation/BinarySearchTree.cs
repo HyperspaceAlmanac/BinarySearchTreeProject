@@ -52,7 +52,7 @@ namespace BinarySearchTreeImplementation
             {// Since there is no remove, duplicates will not matter
                 return;
             } // New value is smaller
-            else if (compareValue == -1)
+            else if (compareValue == 1)
             {
                 if (node.left is null)
                 {
@@ -84,7 +84,7 @@ namespace BinarySearchTreeImplementation
             {
                 return true;
             } // target is smaller
-            else if (compareValue == -1)
+            else if (compareValue == 1)
             {
                 if (node.left is null)
                 {
@@ -104,6 +104,51 @@ namespace BinarySearchTreeImplementation
                 else
                 {
                     return Search(node.right, target);
+                }
+            }
+        }
+
+        public void DisplayTree()
+        {
+            if (root is null)
+            {
+                return;
+            }
+            List<Tuple<Node<T>, int>> stack = new List<Tuple<Node<T>, int>>();
+            int currentLayer = 0;
+            stack.Add(new Tuple<Node<T>, int>(root, 0));
+            while (stack.Count > 0)
+            {
+                Tuple<Node<T>, int> temp = stack[0];
+                stack.RemoveAt(0);
+                if (temp.Item2 > currentLayer)
+                {
+                    currentLayer += 1;
+                    Console.WriteLine();
+                }
+                if (temp.Item1 is null)
+                {
+                    Console.Write("_,");
+                    continue;
+                }
+                Console.Write(temp.Item1.value + ", ");
+                if (temp.Item1.left == null)
+                {
+                    //Console.Write($"parent of null is {temp.Item1.value} ");
+                    stack.Add(new Tuple<Node<T>, int>(null, temp.Item2 + 1));
+                }
+                else
+                {
+                    stack.Add(new Tuple<Node<T>, int> (temp.Item1.left, temp.Item2 + 1));
+                }
+                if (temp.Item1.right == null)
+                {
+                    //Console.Write($"parent of null is {temp.Item1.value} ");
+                    stack.Add(new Tuple<Node<T>, int>(null, temp.Item2 + 1));
+                }
+                else
+                {
+                    stack.Add(new Tuple<Node<T>, int>(temp.Item1.right, temp.Item2 + 1));
                 }
             }
         }

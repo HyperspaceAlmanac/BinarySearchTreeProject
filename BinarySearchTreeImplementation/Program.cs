@@ -10,6 +10,7 @@ namespace BinarySearchTreeImplementation
     {
         static void Main(string[] args)
         {
+            /**
             BinarySearchTree<int> tree = new BinarySearchTree<int>();
             Random rand = new Random();
             int temp;
@@ -21,7 +22,7 @@ namespace BinarySearchTreeImplementation
             }
             tree.DisplayTree();
             Console.ReadLine();
-
+            **/
         }
     }
 }

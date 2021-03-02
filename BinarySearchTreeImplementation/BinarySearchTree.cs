@@ -52,7 +52,7 @@ namespace BinarySearchTreeImplementation
             {// Since there is no remove, duplicates will not matter
                 node.count += 1;
                 return;
-            } // New value is smaller
+            } // Comparer left < right -> -1, left > right -> 1
             else if (compareValue == 1)
             {
                 if (node.left is null)
@@ -84,7 +84,7 @@ namespace BinarySearchTreeImplementation
             if (compareValue == 0)
             {
                 return true;
-            } // target is smaller
+            } // left < right -> -1, left > right -> 1
             else if (compareValue == 1)
             {
                 if (node.left is null)

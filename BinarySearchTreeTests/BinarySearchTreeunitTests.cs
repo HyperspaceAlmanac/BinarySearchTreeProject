@@ -179,7 +179,6 @@ namespace BinarySearchTreeTests
                 {
                     i--;
                 }
-                
             }
             bool actual = tree.Search(notInTree);
             // Assert

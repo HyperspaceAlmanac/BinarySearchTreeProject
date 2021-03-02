@@ -9,6 +9,7 @@ namespace BinarySearchTreeImplementation
     public class Node<T>
     {
         public T value;
+        public int count;
         public Node<T> left;
         public Node<T> right;
         public Node(T value, Node<T> left = null, Node<T> right = null)
@@ -16,6 +17,7 @@ namespace BinarySearchTreeImplementation
             this.value = value;
             this.left = left;
             this.right = right;
+            count = 1;
         }
     }
 }

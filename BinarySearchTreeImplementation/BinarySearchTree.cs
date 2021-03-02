@@ -50,6 +50,7 @@ namespace BinarySearchTreeImplementation
             int compareValue = CompareT(node.value, target);
             if (compareValue == 0)
             {// Since there is no remove, duplicates will not matter
+                node.count += 1;
                 return;
             } // New value is smaller
             else if (compareValue == 1)
@@ -131,7 +132,19 @@ namespace BinarySearchTreeImplementation
                     Console.Write("_,");
                     continue;
                 }
-                Console.Write(temp.Item1.value + ", ");
+                if (temp.Item1.count == 1)
+                {
+                    Console.Write("[" + temp.Item1.value + "]");
+                }
+                else
+                {
+                    Console.Write("[");
+                    for (int i = 0; i < temp.Item1.count; i++)
+                    {
+                        Console.Write((i == 0 ? "" : ", ") + temp.Item1.value);
+                    }
+                    Console.Write("]");
+                }
                 if (temp.Item1.left == null)
                 {
                     //Console.Write($"parent of null is {temp.Item1.value} ");
@@ -150,6 +163,32 @@ namespace BinarySearchTreeImplementation
                 {
                     stack.Add(new Tuple<Node<T>, int>(temp.Item1.right, temp.Item2 + 1));
                 }
+            }
+        }
+        // Binary search tree should flatten into sorted list
+        public List<T> Flatten()
+        {
+            List<T> result = new List<T>();
+            if (root is null)
+            {
+                return result;
+            }
+            Flatten(root, result);
+            return result;
+        }
+        private void Flatten(Node<T> node, List<T> result)
+        {
+            if (node.left != null)
+            {
+                Flatten(node.left, result);
+            }
+            for (int i = 0; i < node.count; i++)
+            {
+                result.Add(node.value);
+            }
+            if (node.right != null)
+            {
+                Flatten(node.right, result);
             }
         }
     }

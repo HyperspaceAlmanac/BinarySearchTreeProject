@@ -49,7 +49,7 @@ namespace BinarySearchTreeImplementation
         {
             int compareValue = CompareT(node.value, target);
             if (compareValue == 0)
-            {// Since there is no remove, duplicates will not matter
+            {// Duplicates will be handled by count field that keeps track of how many of same value are there
                 node.count += 1;
                 return;
             } // Comparer left < right -> -1, left > right -> 1

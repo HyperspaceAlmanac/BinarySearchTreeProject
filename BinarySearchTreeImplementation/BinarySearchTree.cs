@@ -164,6 +164,7 @@ namespace BinarySearchTreeImplementation
                     stack.Add(new Tuple<Node<T>, int>(temp.Item1.right, temp.Item2 + 1));
                 }
             }
+            Console.WriteLine();
         }
         // Binary search tree should flatten into sorted list
         public List<T> Flatten()

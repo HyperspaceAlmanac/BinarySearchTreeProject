@@ -23,6 +23,24 @@ namespace BinarySearchTreeImplementation
             tree.DisplayTree();
             Console.ReadLine();
             **/
+            /** Step by step check
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Add(5);
+            tree.DisplayTree();
+            tree.Add(10);
+            tree.DisplayTree();
+            tree.Add(7);
+            tree.DisplayTree();
+            tree.Add(3);
+            tree.DisplayTree();
+            tree.Add(1);
+            tree.DisplayTree();
+            tree.Add(2);
+            tree.DisplayTree();
+            tree.Add(4);
+            tree.DisplayTree();
+            Console.ReadLine();
+            **/
         }
     }
 }
